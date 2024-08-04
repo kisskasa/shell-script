@@ -8,6 +8,8 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
+echo "Please enter DB password:"
+read -s mysql_root_password
 
 VALIDATE()
 {
@@ -57,6 +59,24 @@ VALIDATE $? "Extracted backend code"
 
 npm install
 VALIDATE $? "Installing nodejs dependencies"
+
+cp /home/ec2-user/shell-script/backend.service /etc/systemd/system/backend.service
+VALIDATE $? "Copied backend service"
+
+systemctl daemon-reload
+systemctl start backend
+systemctl enable backend
+VALIDATE $? "Starting & Enabling backend"
+
+dnf install mysql -y
+mysql -h <MYSQL-SERVER-IPADDRESS> -uroot ${mysql_root_password} < /app/schema/backend.sql
+
+systemctl restart backend &>>LOGFILE
+VALIDATE $? "Restarting Backend"
+
+
+
+
 
 
 
