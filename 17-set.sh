@@ -2,6 +2,8 @@
 
 set -e
 
+trap 'failure ${LINENO} "$BASH_COMMAND" ' ERR
+
 USERID=$(id -u)
 
 if [ $USERID -ne 0 ]
