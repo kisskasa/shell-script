@@ -1,1 +1,1 @@
-this is again sample script
+echo "Ramesh:: Hello suresh, how are you ?"
