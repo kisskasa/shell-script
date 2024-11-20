@@ -1,0 +1,3 @@
+
+
+dnf install mysql -y
