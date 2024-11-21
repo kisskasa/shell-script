@@ -1,6 +1,8 @@
 #!/bin/bash
 
 USERID=$(id -u)
+TIMESTAMP=$(date +%F-%H-%M-%S)
+LOFFILE=/tmp/$0
 
 VALIDATE(){
     if [ $1 -ne 0 ]
