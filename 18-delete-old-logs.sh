@@ -1,6 +1,6 @@
 
 
-SOURCE_DIRECTORY=/tmp/app-logs
+SOURCE_DIRECTORY=/tmp/app-logs1
 
 R="\e[31m"
 G="\e[32m"
