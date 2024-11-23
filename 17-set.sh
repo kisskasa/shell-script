@@ -1,6 +1,6 @@
 
 
-
+set -e
 
 USERID=$(id -u)
 
